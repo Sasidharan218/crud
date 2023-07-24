@@ -40,13 +40,13 @@ const id = location.pathname.split("/")[2]
             <h2 className="title">Edit</h2>
             <div className="edit">
             <label>Name</label>
-            <input className="form-control" type="text" name="name" onChange={handleChange}/>
+            <input className="form-control" type="text" name="name" placeholder="Enter Name" onChange={handleChange}/>
             <label>Age</label>
-            <input className="form-control" type="number" name="age" onChange={handleChange}/>
+            <input className="form-control" type="number" name="age" placeholder="Enter Age" onChange={handleChange}/>
             <label>Email</label>
-            <input className="form-control" type="text" name="email" onChange={handleChange}/>
+            <input className="form-control" type="text" name="email" placeholder="Enter Email" onChange={handleChange}/>
             <label>City</label>
-            <input className="form-control" type="text" name="city" onChange={handleChange}/>
+            <input className="form-control" type="text" name="city" placeholder="Enter City" onChange={handleChange}/>
             <button className="btn btn-success" onClick={handleClick}>Update</button>
             </div>
         </div>

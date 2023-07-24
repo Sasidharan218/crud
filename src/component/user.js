@@ -32,7 +32,7 @@ const handleDelete = async (id) => {
 }
 
 return(
-    <div>
+    <div className="container">
         <h1 className="title">Table</h1>
         <button className="btn btn-primary user"><Link className="link" to={'/add'}>Add User</Link></button>
       <table className="table">
