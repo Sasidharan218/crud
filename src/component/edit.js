@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import './user.css';
 import { useLocation, useNavigate } from "react-router-dom";
+import { Button, Card, TextField } from "@mui/material";
 
 const Edit = () => {
     const [adduser, setAdduser] = useState({
@@ -38,17 +39,17 @@ const id = location.pathname.split("/")[2]
     return(
         <div>
             <h2 className="title">Edit</h2>
-            <div className="edit">
-            <label>Name</label>
-            <input className="form-control" type="text" name="name" placeholder="Enter Name" onChange={handleChange}/>
-            <label>Age</label>
-            <input className="form-control" type="number" name="age" placeholder="Enter Age" onChange={handleChange}/>
-            <label>Email</label>
-            <input className="form-control" type="text" name="email" placeholder="Enter Email" onChange={handleChange}/>
-            <label>City</label>
-            <input className="form-control" type="text" name="city" placeholder="Enter City" onChange={handleChange}/>
-            <button className="btn btn-success" onClick={handleClick}>Update</button>
-            </div>
+            <Card className="edit" variant="outlined">
+            <TextField id="outlined-basic" label="Name" variant="outlined" type="text" name="name"  onChange={handleChange}/>
+            <TextField id="outlined-basic" label="Age" variant="outlined" type="number" name="age"  onChange={handleChange}/>
+            <TextField id="outlined-basic" label="Email" variant="outlined" type="text" name="email"  onChange={handleChange}/>
+            <TextField id="outlined-basic" label="City" variant="outlined" type="text" name="city"  onChange={handleChange}/>
+            <Button variant="contained" color="success"  onClick={handleClick}>
+            Update
+            </Button>
+            
+            
+            </Card>
         </div>
     )
 }

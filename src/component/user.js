@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom"
 import './user.css';
+import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 
 
 const Users =() => {
@@ -34,30 +35,41 @@ const handleDelete = async (id) => {
 return(
     <div className="container">
         <h1 className="title">Table</h1>
-        <button className="btn btn-primary user"><Link className="link" to={'/add'}>Add User</Link></button>
-      <table className="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Email</th>
-                <th>City</th>
-            </tr>
-        </thead>
-        <tbody>
+        
+        <Button className=" user" variant="contained" color="primary">
+        <Link className="link" to={'/add'}>Add User</Link>
+</Button><br/><br></br>
+    <TableContainer component={Paper}>
+      <Table className="table">
+      
+        <TableHead>
+            <TableRow>
+                <TableCell>Name</TableCell>
+                <TableCell>Age</TableCell>
+                <TableCell>Email</TableCell>
+                <TableCell>City</TableCell>
+            </TableRow>
+        </TableHead>
+        <TableBody>
             {user.map((user,i)=>(
-                       <tr key={i}>
+                       <TableRow key={i}>
                          
-                        <td>{user.name}</td>
-                        <td>{user.age}</td>
-                        <td>{user.email}</td>
-                        <td>{user.city}</td>
-                        <td><button className="btn btn-danger" onClick={()=> handleDelete(user.id)}>delete</button>
-                        <button className="btn btn-info"><Link className="link" to={`/edit/${user.id}`}>Update</Link></button></td>
-                       </tr>
+                        <TableCell>{user.name}</TableCell>
+                        <TableCell>{user.age}</TableCell>
+                        <TableCell>{user.email}</TableCell>
+                        <TableCell>{user.city}</TableCell>
+                        <TableCell>
+                        <Button className=" btn" variant="contained" color="primary"
+                        onClick={()=> handleDelete(user.id)}>
+                        Delete
+                        </Button>
+                        <Button className="btn"
+                        variant="contained" color="secondary"><Link className="link" to={`/edit/${user.id}`}>Update</Link></Button></TableCell>
+                       </TableRow>
                     ))}  
-        </tbody>
-        </table> 
+        </TableBody>
+        </Table> 
+        </TableContainer>
     </div>
 )
 }
